@@ -1,0 +1,109 @@
+defaults:
+  language: "ru"
+  domain: "general"
+  max_context_length: 8192
+  parallel_sessions: 1
+  priority_quality: 3
+  priority_speed: 3
+  priority_memory: 3
+  os: "Linux"
+
+constraints:
+  min_ram_gb: 8.0
+  min_vram_for_gpu_gb: 4.0
+  min_context_len: 512
+  max_context_len: 1048576
+  max_parallel_sessions: 64
+  min_description_length: 15
+
+supported_languages:
+  - "ru"
+  - "en"
+  - "de"
+  - "fr"
+  - "es"
+  - "zh"
+
+language_aliases:
+  "russian": "ru"
+  "русский": "ru"
+  "рус": "ru"
+  "english": "en"
+  "английский": "en"
+  "англ": "en"
+  "german": "de"
+  "немецкий": "de"
+  "french": "fr"
+  "французский": "fr"
+  "chinese": "zh"
+  "китайский": "zh"
+  "spanish": "es"
+  "испанский": "es"
+  "multilingual": "ru"
+  "мультиязычный": "ru"
+
+supported_domains:
+  - "general"
+  - "code"
+  - "technical"
+  - "medical"
+
+domain_aliases:
+  "engineering": "technical"
+  "docs": "technical"
+  "documentation": "technical"
+  "science": "technical"
+  "programming": "code"
+  "development": "code"
+  "software": "code"
+  "healthcare": "medical"
+  "clinical": "medical"
+  "legal": "general"
+  "finance": "general"
+  "business": "general"
+
+known_gpus:
+  "RTX 5090": 32.0
+  "RTX 4090": 24.0
+  "RTX 3090": 24.0
+  "RTX 4080": 16.0
+  "L40S": 48.0
+  "A100": 80.0
+  "H100": 80.0
+
+domain_keywords:
+  technical:
+    - "технической документации"
+    - "техническ"
+    - "документац"
+    - "регламент"
+    - "инструкц"
+    - "инженер"
+    - "научн"
+  code:
+    - "код"
+    - "программирован"
+    - "разработк"
+    - "репозитор"
+    - "ide"
+  medical:
+    - "медицин"
+    - "клинич"
+    - "пациент"
+    - "диагноз"
+  general:
+    - "юридич"
+    - "договор"
+    - "право"
+    - "финанс"
+    - "банк"
+    - "бухгалтер"
+    - "поддержк"
+    - "общ"
+
+clarification_templates:
+  missing_gpu_vram: "Указан графический ускоритель, но объём видеопамяти (VRAM) равен 0 ГБ. Уточните объём VRAM или подтвердите запуск только на CPU."
+  missing_hardware_mode: "Не указана видеокарта и не подтверждён допустимый запуск на CPU. Укажите модель и объём VRAM GPU либо разрешите CPU-режим."
+  short_description: "Описание прикладной задачи слишком краткое. Уточните предметную область (домен), язык документов и требования к приватности."
+  vram_mismatch_warning: "Объём VRAM ({actual} ГБ) отличается от спецификации {gpu} ({expected} ГБ)."
+  low_vram_warning: "Объём VRAM ({actual} ГБ) ниже рекомендуемого минимума ({min_vram} ГБ) для локального контура RAG."

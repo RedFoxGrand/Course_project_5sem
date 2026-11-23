@@ -46,6 +46,7 @@ START
 │   └── graph.py             # Сквозной граф LangGraph
 ├── api.py                   # Объединённый FastAPI-сервер и HTML-дашборд OSTIS
 ├── run_demo.py              # CLI-демонстрация сквозного конвейера (RTX 5090 -> RTX 4090)
+├── test_integration.py      # Сквозные интеграционные тесты
 ├── requirements.txt         # Единые зависимости проекта
 ├── .gitignore
 └── README.md

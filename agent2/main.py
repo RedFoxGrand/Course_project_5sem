@@ -41,32 +41,23 @@ async def main() -> None:
         )
         print("-" * 98)
         for c in candidates:
-            params_str = (
-                f"{c.parameters_count_b.value}B"
-                if c.parameters_count_b.value is not None
-                else "не указано"
-            )
-            ctx_str = (
-                f"{c.context_length.value}"
-                if c.context_length.value is not None
-                else "не указано"
-            )
-            status_str = c.parameters_count_b.status
+            p_ev = c["parameters_count_b"]
+            ctx_ev = c["context_length"]
+            params_str = f"{p_ev['value']}B" if p_ev["value"] is not None else "не указано"
+            ctx_str = f"{ctx_ev['value']}" if ctx_ev["value"] is not None else "не указано"
             print(
-                f"{c.role.upper():<10} | {c.model_id[:42]:<42} | {params_str:<13} | {ctx_str:<12} | {status_str}"
+                f"{c['role'].upper():<10} | {c['model_id'][:42]:<42} | {params_str:<13} | {ctx_str:<12} | {p_ev['status']}"
             )
 
     print("\nЖурнал трассировки:")
     for t in traces:
         print(f" -> [{t['step']}] {t['details']}")
 
-    payload_str = json.dumps(
-        [c.model_dump() for c in candidates], ensure_ascii=False, indent=4
-    )
+    payload_str = json.dumps(candidates, ensure_ascii=False, indent=4)
     await asyncio.to_thread(
         DEFAULT_CANDIDATES_PATH.write_text, payload_str, encoding="utf-8"
     )
-    print(f"\n[OK] Результат сохранен в {DEFAULT_CANDIDATES_PATH}")
+    print(f"\n[Oк] Результат сохранен в {DEFAULT_CANDIDATES_PATH}")
 
 
 if __name__ == "__main__":

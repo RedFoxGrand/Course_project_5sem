@@ -1,3 +1,0 @@
-pydantic>=2.7.0
-huggingface-hub>=0.23.0
-pytest>=8.2.0

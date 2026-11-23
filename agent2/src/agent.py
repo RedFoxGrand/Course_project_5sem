@@ -1,9 +1,9 @@
 from typing import Any
 
-from src.catalog_adapter import CatalogAdapter
-from src.hf_adapter import BackgroundSyncScheduler, HuggingFaceSyncService
-from src.kb_storage import UnifiedKBStorage
-from src.schemas import AgentTraceEvent, ModelCandidate, RequirementProfile, RoleType
+from .catalog_adapter import CatalogAdapter
+from .hf_adapter import BackgroundSyncScheduler, HuggingFaceSyncService
+from .kb_storage import UnifiedKBStorage
+from .schemas import AgentTraceEvent, ModelCandidate, RequirementProfile, RoleType
 
 
 class ModelResearcherAgent:
@@ -127,25 +127,33 @@ _DEFAULT_AGENT: ModelResearcherAgent | None = None
 
 
 async def collect_candidates_node(state: dict[str, Any]) -> dict[str, Any]:
-    """Узел для графа LangGraph с сохранением фонового демона синхронизации."""
+    """Узел для графа LangGraph с поддержкой dict-контракта и настраиваемого лимита."""
     global _DEFAULT_AGENT
     if _DEFAULT_AGENT is None:
-        _DEFAULT_AGENT = ModelResearcherAgent(enable_background_sync=True)
+        enable_sync = bool(state.get("enable_background_sync", True))
+        _DEFAULT_AGENT = ModelResearcherAgent(enable_background_sync=enable_sync)
 
     raw_req = state.get("requirements") or {}
     req_profile = (
         raw_req
         if isinstance(raw_req, RequirementProfile)
-        else (RequirementProfile.model_validate(raw_req) if isinstance(raw_req, dict) else RequirementProfile())
+        else (
+            RequirementProfile.model_validate(raw_req)
+            if isinstance(raw_req, dict)
+            else RequirementProfile()
+        )
     )
 
-    candidates, new_traces, is_pipeline_viable = _DEFAULT_AGENT.collect_candidates(req_profile)
+    max_per_role = int(state.get("max_candidates_per_role", 25))
+    candidates, new_traces, is_pipeline_viable = _DEFAULT_AGENT.collect_candidates(
+        req_profile, max_candidates_per_role=max_per_role
+    )
 
     existing_trace = list(state.get("trace", []))
     existing_trace.extend([t.model_dump() for t in new_traces])
 
     return {
-        "candidates": candidates,
+        "candidates": [c.model_dump() for c in candidates],
         "trace": existing_trace,
         "is_pipeline_viable": is_pipeline_viable,
     }

@@ -1,0 +1,60 @@
+{
+  "project_id": "rag-russian-docs",
+  "request": {"description": "Локальный RAG по технической документации"},
+  "hardware": {
+    "cpu": "AMD Ryzen workstation", "ram_gb": 64,
+    "gpus": [{"name": "NVIDIA RTX 5090", "vram_gb": 32}],
+    "os": "Linux", "reserved_ram_gb": 4
+  },
+  "requirements": {
+    "language": "ru", "domain": "technical documentation", "local_only": true,
+    "context_length": 8192, "parallel_sessions": 5, "priority": "quality",
+    "allow_cpu_offload": true, "allow_reduce_context": false,
+    "allow_reduce_parallelism": false, "embedding_batch_size": 16,
+    "reranker_batch_size": 8
+  },
+  "model_sets": [
+    {
+      "id": "ranked-set-1", "score": 0.94,
+      "llm": {
+        "id": "example-llm-8b", "parameters_b": 8,
+        "quantizations": ["fp16", "awq"], "formats": ["safetensors"],
+        "engines": ["vllm"], "max_context": 32768,
+        "num_hidden_layers": 28, "num_key_value_heads": 8, "head_dim": 128,
+        "evidence_status": "catalog", "sources": ["https://example.org/models/example-llm-8b"]
+      },
+      "embedding": {
+        "id": "example-embedding-300m", "parameters_b": 0.3,
+        "quantizations": ["fp16"], "formats": ["safetensors"], "engines": ["tei"],
+        "evidence_status": "catalog", "sources": ["https://example.org/models/example-embedding-300m"]
+      },
+      "reranker": {
+        "id": "example-reranker-600m", "parameters_b": 0.6,
+        "quantizations": ["fp16"], "formats": ["safetensors"], "engines": ["tei"],
+        "evidence_status": "catalog", "sources": ["https://example.org/models/example-reranker-600m"]
+      }
+    },
+    {
+      "id": "ranked-set-2", "score": 0.72,
+      "llm": {
+        "id": "example-llm-4b", "parameters_b": 4,
+        "quantizations": ["fp16", "awq"], "formats": ["safetensors"],
+        "engines": ["vllm"], "max_context": 32768,
+        "num_hidden_layers": 24, "num_key_value_heads": 8, "head_dim": 128,
+        "evidence_status": "catalog"
+      },
+      "embedding": {
+        "id": "example-embedding-300m", "parameters_b": 0.3,
+        "quantizations": ["fp16"], "formats": ["safetensors"], "engines": ["tei"],
+        "evidence_status": "catalog"
+      },
+      "reranker": {
+        "id": "example-reranker-600m", "parameters_b": 0.6,
+        "quantizations": ["fp16"], "formats": ["safetensors"], "engines": ["tei"],
+        "evidence_status": "catalog"
+      }
+    }
+  ],
+  "trace": [{"agent": "model_selector", "event": "finished"}],
+  "errors": []
+}

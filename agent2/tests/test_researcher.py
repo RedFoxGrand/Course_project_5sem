@@ -113,7 +113,7 @@ def test_triplet_integrity_failure_on_impossible_context(tmp_path):
 
     _, traces, is_viable = agent.collect_candidates(req)
     assert is_viable is False
-    assert any("ОШИБКА КОНТУРА" in t.details for t in traces)
+    assert any("ошибка контура" in t.details.lower() for t in traces)
 
 
 def test_missing_metadata_stored_as_unknown_not_faked(tmp_path):

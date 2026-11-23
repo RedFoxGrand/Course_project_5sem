@@ -1,0 +1,5585 @@
+{
+  "1. Кодогенерация (EN, 32K, только локальные)": {
+    "is_pipeline_viable": true,
+    "elapsed_ms": 31.85,
+    "counts": {
+      "llm": 10,
+      "embedding": 10,
+      "reranker": 10
+    },
+    "trace": [
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_status_check",
+        "details": "Единая локальная БЗ активна (всего моделей: 209; обновление HF Hub: 2026-11-22T12:12:19.323668+00:00)",
+        "candidates_count": 209
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:llm",
+        "details": "БЗ: для роли 'llm' отобрано 10 кандидатов (lang=en, min_ctx=32768)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:embedding",
+        "details": "БЗ: для роли 'embedding' отобрано 10 кандидатов (lang=en, min_ctx=8192)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:reranker",
+        "details": "БЗ: для роли 'reranker' отобрано 10 кандидатов (lang=en, min_ctx=512)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "pipeline_integrity_check",
+        "details": "Контур RAG жизнеспособен! Отобрано из актуальной БЗ: LLM=10, Emb=10, Rerank=10.",
+        "candidates_count": 30
+      }
+    ],
+    "top_candidates": [
+      {
+        "model_id": "deepseek-ai/DeepSeek-V3.2",
+        "name": "DeepSeek-V3.2",
+        "organization": "DeepSeek",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 685.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 37.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1424.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Передовые способности в высшей математике, логике и программировании",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
+      },
+      {
+        "model_id": "Qwen/Qwen3-Coder-Next",
+        "name": "Qwen3-Coder-Next",
+        "organization": "Alibaba",
+        "role": "llm",
+        "license": "Open weights",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 268288,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 80.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 3.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1422.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Профессиональная веб-разработка, кодинг и авто-исправление багов",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3-Coder-Next"
+      },
+      {
+        "model_id": "deepseek-ai/DeepSeek-V3",
+        "name": "DeepSeek-V3",
+        "organization": "DeepSeek",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 671.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 37.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1422.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Продвинутая фронтенд-разработка, Tool Calling и веб-поиск",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+      },
+      {
+        "model_id": "XiaomiMiMo/MiMo-V2-Flash",
+        "name": "MiMo-V2-Flash",
+        "organization": "Xiaomi",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 262144,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 309.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 12.5,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1415.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Глубокая интеграция с IDE (Cursor) и мгновенная веб-генерация верстки",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash"
+      },
+      {
+        "model_id": "mistralai/Devstral-Small-2-24B-Instruct-2512",
+        "name": "Devstral-Small-2-24B-Instruct-2512",
+        "organization": "Mistral AI",
+        "role": "llm",
+        "license": "Apache 2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 262144,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 24.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1150.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Локальная помощь в разработке и плотная интеграция с редакторами кода",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512"
+      },
+      {
+        "model_id": "Qwen/Qwen3.5-397B-A17B",
+        "name": "Qwen3.5-397B-A17B",
+        "organization": "Alibaba",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 268288,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 397.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 17.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1464.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Тяжелый open-weight флагман для агентных систем и сложного анализа",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+      },
+      {
+        "model_id": "zai-org/GLM-5",
+        "name": "GLM-5",
+        "organization": "Zhipu AI",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 204800,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 744.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 40.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1456.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Длинногоризонтное планирование, системная инженерия и агентные задачи",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/zai-org/GLM-5"
+      },
+      {
+        "model_id": "moonshotai/Kimi-K2.5",
+        "name": "Kimi-K2.5",
+        "organization": "Moonshot AI",
+        "role": "llm",
+        "license": "Modified MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 262144,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 1000.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 32.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1453.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Параллельная обработка задач роем агентов и визуальное кодирование",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/moonshotai/Kimi-K2.5"
+      },
+      {
+        "model_id": "inclusionAI/Ling-2.5-1T",
+        "name": "Ling-2.5-1T",
+        "organization": "Ant Group",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 1000.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 8.3,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1445.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Высочайшая скорость рассуждений и работы инструментов на масштабе 1T",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/inclusionAI/Ling-2.5-1T"
+      },
+      {
+        "model_id": "zai-org/GLM-4.7",
+        "name": "GLM-4.7",
+        "organization": "Zhipu AI",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 204800,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 355.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 32.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1443.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Генерация кода и бесшовная интеграция с Model Context Protocol (MCP)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/zai-org/GLM-4.7"
+      },
+      {
+        "model_id": "Qwen/Qwen3-Embedding-8B",
+        "name": "Qwen3-Embedding-8B",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 70.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B"
+      },
+      {
+        "model_id": "nvidia/NV-Embed-v2",
+        "name": "NV-Embed-v2",
+        "organization": "Nvidia",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 69.3,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": false,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/nvidia/NV-Embed-v2"
+      },
+      {
+        "model_id": "BAAI/bge-m4-large",
+        "name": "bge-m4-large",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 16384,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.335,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 2048,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 68.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=2048)",
+        "domain_match": false,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://github.com/FlagOpen/FlagEmbedding"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "name": "gte-Qwen2-7B-instruct",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 68.4,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct"
+      },
+      {
+        "model_id": "Salesforce/SFR-Embedding-2_R",
+        "name": "SFR-Embedding-2_R",
+        "organization": "Salesforce",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 67.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": false,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/Salesforce/SFR-Embedding-2_R"
+      },
+      {
+        "model_id": "BAAI/bge-multilingual-gemma2",
+        "name": "bge-multilingual-gemma2",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 9.24,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 67.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": false,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-multilingual-gemma2"
+      },
+      {
+        "model_id": "GritLM/GritLM-7B",
+        "name": "GritLM-7B",
+        "organization": "GritLM",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/GritLM/GritLM-7B"
+      },
+      {
+        "model_id": "intfloat/e5-mistral-7b-instruct",
+        "name": "intfloat/e5-mistral-7b-instruct",
+        "organization": "Microsoft",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/intfloat/e5-mistral-7b-instruct"
+      },
+      {
+        "model_id": "jinaai/jina-embeddings-v3",
+        "name": "jina-embeddings-v3",
+        "organization": "Jina AI",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.565,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 65.0,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-embeddings-v3"
+      },
+      {
+        "model_id": "nomic-ai/nomic-embed-text-v2",
+        "name": "nomic-embed-text-v2",
+        "organization": "Nomic AI",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 64.9,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": false,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://www.google.com/search?q=https://huggingface.co/nomic-ai/nomic-embed-text-v2"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.568,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 69.2,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Мультиязычный cross-encoder реранкер для гибридного RAG",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-large",
+        "name": "bge-reranker-large",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 512,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.56,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.1,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Классический надежный cross-encoder для стандартных чанков 512 токенов",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-large"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-gemma",
+        "name": "bge-reranker-v2-gemma",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 2.51,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 71.5,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Тяжелый LLM-based реранкер максимальной точности",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-gemma"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+        "name": "gte-multilingual-reranker-base",
+        "organization": "Alibaba",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.306,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.4,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Легковесный мультиязычный реранкер с поддержкой длинного контекста",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-reranker-base"
+      },
+      {
+        "model_id": "jinaai/jina-reranker-v2-base-multilingual",
+        "name": "jina-reranker-v2-base-multilingual",
+        "organization": "Jina AI",
+        "role": "reranker",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1024,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Высокоскоростной реранкер с поддержкой русского и английского языков",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual"
+      },
+      {
+        "model_id": "danielchalef/Qwen3-Reranker-4B-seq-cls-vllm-fixed",
+        "name": "Qwen3-Reranker-4B-seq-cls-vllm-fixed",
+        "organization": "danielchalef",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 40960,
+          "source": "https://huggingface.co/danielchalef/Qwen3-Reranker-4B-seq-cls-vllm-fixed/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 4.0,
+          "source": "https://huggingface.co/danielchalef/Qwen3-Reranker-4B-seq-cls-vllm-fixed",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/danielchalef/Qwen3-Reranker-4B-seq-cls-vllm-fixed"
+      },
+      {
+        "model_id": "tomaarsen/Qwen3-Reranker-0.6B-seq-cls",
+        "name": "Qwen3-Reranker-0.6B-seq-cls",
+        "organization": "tomaarsen",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 40960,
+          "source": "https://huggingface.co/tomaarsen/Qwen3-Reranker-0.6B-seq-cls/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 0.6,
+          "source": "https://huggingface.co/tomaarsen/Qwen3-Reranker-0.6B-seq-cls",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/tomaarsen/Qwen3-Reranker-0.6B-seq-cls"
+      },
+      {
+        "model_id": "samyhaff/qwen3-4b-reranker-ed",
+        "name": "qwen3-4b-reranker-ed",
+        "organization": "samyhaff",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 40960,
+          "source": "https://huggingface.co/samyhaff/qwen3-4b-reranker-ed/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 4.0,
+          "source": "https://huggingface.co/samyhaff/qwen3-4b-reranker-ed",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/samyhaff/qwen3-4b-reranker-ed"
+      },
+      {
+        "model_id": "samyhaff/qwen3-0.6b-reranker-ed",
+        "name": "qwen3-0.6b-reranker-ed",
+        "organization": "samyhaff",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 40960,
+          "source": "https://huggingface.co/samyhaff/qwen3-0.6b-reranker-ed/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 0.6,
+          "source": "https://huggingface.co/samyhaff/qwen3-0.6b-reranker-ed",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": false,
+        "warnings": [],
+        "source_url": "https://huggingface.co/samyhaff/qwen3-0.6b-reranker-ed"
+      },
+      {
+        "model_id": "sdadas/polish-reranker-bge-v2",
+        "name": "polish-reranker-bge-v2",
+        "organization": "sdadas",
+        "role": "reranker",
+        "license": "gemma",
+        "languages": [
+          "en"
+        ],
+        "context_length": {
+          "value": 8194,
+          "source": "https://huggingface.co/sdadas/polish-reranker-bge-v2/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/sdadas/polish-reranker-bge-v2",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": false,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/sdadas/polish-reranker-bge-v2"
+      }
+    ]
+  },
+  "2. Экстремальный контекст 1M токенов (RU, локальные)": {
+    "is_pipeline_viable": true,
+    "elapsed_ms": 5.94,
+    "counts": {
+      "llm": 8,
+      "embedding": 10,
+      "reranker": 8
+    },
+    "trace": [
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_status_check",
+        "details": "Единая локальная БЗ активна (всего моделей: 209; обновление HF Hub: 2026-11-22T12:12:19.323668+00:00)",
+        "candidates_count": 209
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:llm",
+        "details": "БЗ: для роли 'llm' отобрано 8 кандидатов (lang=ru, min_ctx=1000000)",
+        "candidates_count": 8
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:embedding",
+        "details": "БЗ: для роли 'embedding' отобрано 10 кандидатов (lang=ru, min_ctx=8192)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:reranker",
+        "details": "БЗ: для роли 'reranker' отобрано 8 кандидатов (lang=ru, min_ctx=512)",
+        "candidates_count": 8
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "pipeline_integrity_check",
+        "details": "Контур RAG жизнеспособен! Отобрано из актуальной БЗ: LLM=8, Emb=10, Rerank=8.",
+        "candidates_count": 26
+      }
+    ],
+    "top_candidates": [
+      {
+        "model_id": "inclusionAI/Ling-2.5-1T",
+        "name": "Ling-2.5-1T",
+        "organization": "Ant Group",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 1000.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 8.3,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1445.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Высочайшая скорость рассуждений и работы инструментов на масштабе 1T",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/inclusionAI/Ling-2.5-1T"
+      },
+      {
+        "model_id": "inclusionAI/Ring-2.5-1T",
+        "name": "Ring-2.5-1T",
+        "organization": "Ant Group",
+        "role": "llm",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 1000.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 63.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1420.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Экстремально сложное математическое моделирование (уровень олимпиад)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/inclusionAI/Ring-2.5-1T"
+      },
+      {
+        "model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "name": "Llama-4-Scout-17B-16E-Instruct",
+        "organization": "Meta",
+        "role": "llm",
+        "license": "Llama 4 License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 10485760,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 109.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 17.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1368.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Анализ гигантских кодовых баз и поиск по большим корпоративным базам знаний",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+      },
+      {
+        "model_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+        "name": "Nemotron-3-Super-120B-A12B-BF16",
+        "organization": "NVIDIA",
+        "role": "llm",
+        "license": "Open Model License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 120.0,
+          "source": "catalog:llmCatalog:size",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": {
+          "value": 12.0,
+          "source": "catalog:llmCatalog:size_active",
+          "status": "catalog"
+        },
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "Q4_K_M",
+          "Q8_0",
+          "FP16"
+        ],
+        "compatible_engines": [
+          "vllm",
+          "sglang",
+          "llama.cpp",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 1365.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Длинные рабочие процессы, AI-исследователи и системные агенты",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"
+      },
+      {
+        "model_id": "DeepNarra/Paham-Experimental",
+        "name": "Paham-Experimental",
+        "organization": "DeepNarra",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2097152,
+          "source": "https://huggingface.co/DeepNarra/Paham-Experimental/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/DeepNarra/Paham-Experimental",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "llama.cpp",
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/DeepNarra/Paham-Experimental"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-12.8GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-8.9GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-11.2GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB"
+      },
+      {
+        "model_id": "Qwen/Qwen3-Embedding-8B",
+        "name": "Qwen3-Embedding-8B",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 70.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B"
+      },
+      {
+        "model_id": "nvidia/NV-Embed-v2",
+        "name": "NV-Embed-v2",
+        "organization": "Nvidia",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 69.3,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/nvidia/NV-Embed-v2"
+      },
+      {
+        "model_id": "BAAI/bge-m4-large",
+        "name": "bge-m4-large",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 16384,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.335,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 2048,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 68.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=2048)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://github.com/FlagOpen/FlagEmbedding"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "name": "gte-Qwen2-7B-instruct",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 68.4,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct"
+      },
+      {
+        "model_id": "BAAI/bge-multilingual-gemma2",
+        "name": "bge-multilingual-gemma2",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 9.24,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 67.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-multilingual-gemma2"
+      },
+      {
+        "model_id": "GritLM/GritLM-7B",
+        "name": "GritLM-7B",
+        "organization": "GritLM",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/GritLM/GritLM-7B"
+      },
+      {
+        "model_id": "intfloat/e5-mistral-7b-instruct",
+        "name": "intfloat/e5-mistral-7b-instruct",
+        "organization": "Microsoft",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/intfloat/e5-mistral-7b-instruct"
+      },
+      {
+        "model_id": "jinaai/jina-embeddings-v3",
+        "name": "jina-embeddings-v3",
+        "organization": "Jina AI",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.565,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 65.0,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-embeddings-v3"
+      },
+      {
+        "model_id": "BAAI/bge-m3",
+        "name": "bge-m3",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.565,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 64.1,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-m3"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-base",
+        "name": "gte-multilingual-base",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 768,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 63.2,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=768)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-gemma",
+        "name": "bge-reranker-v2-gemma",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 2.51,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 71.5,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Тяжелый LLM-based реранкер максимальной точности",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-gemma"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.568,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 69.2,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Мультиязычный cross-encoder реранкер для гибридного RAG",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+        "name": "gte-multilingual-reranker-base",
+        "organization": "Alibaba",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.306,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.4,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Легковесный мультиязычный реранкер с поддержкой длинного контекста",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-reranker-base"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-large",
+        "name": "bge-reranker-large",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 512,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.56,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.1,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Классический надежный cross-encoder для стандартных чанков 512 токенов",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-large"
+      },
+      {
+        "model_id": "jinaai/jina-reranker-v2-base-multilingual",
+        "name": "jina-reranker-v2-base-multilingual",
+        "organization": "Jina AI",
+        "role": "reranker",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1024,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Высокоскоростной реранкер с поддержкой русского и английского языков",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual"
+      },
+      {
+        "model_id": "nokkela-ai/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "nokkela-ai",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8194,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+        "name": "bge-reranker-v2.5-gemma2-lightweight",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "gemma",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-minicpm-layerwise",
+        "name": "bge-reranker-v2-minicpm-layerwise",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2048,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise"
+      }
+    ]
+  },
+  "3. Гибридный режим с облачными API (RU, 131K, privacy=False)": {
+    "is_pipeline_viable": true,
+    "elapsed_ms": 10.41,
+    "counts": {
+      "llm": 10,
+      "embedding": 10,
+      "reranker": 8
+    },
+    "trace": [
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_status_check",
+        "details": "Единая локальная БЗ активна (всего моделей: 209; обновление HF Hub: 2026-11-22T12:12:19.323668+00:00)",
+        "candidates_count": 209
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:llm",
+        "details": "БЗ: для роли 'llm' отобрано 10 кандидатов (lang=ru, min_ctx=131072)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:embedding",
+        "details": "БЗ: для роли 'embedding' отобрано 10 кандидатов (lang=ru, min_ctx=8192)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:reranker",
+        "details": "БЗ: для роли 'reranker' отобрано 8 кандидатов (lang=ru, min_ctx=512)",
+        "candidates_count": 8
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "pipeline_integrity_check",
+        "details": "Контур RAG жизнеспособен! Отобрано из актуальной БЗ: LLM=10, Emb=10, Rerank=8.",
+        "candidates_count": 28
+      }
+    ],
+    "top_candidates": [
+      {
+        "model_id": "claude-opus-4-6",
+        "name": "Claude Opus 4.6",
+        "organization": "Anthropic",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1504.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Максимальная агентность, долгосрочное планирование и аналитика",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/anthropic/claude-opus-4.6"
+      },
+      {
+        "model_id": "qwen3-5-max",
+        "name": "Qwen3.5-Max",
+        "organization": "Alibaba",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1495.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Максимальная универсальная производительность и логические цепочки",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://qwen.ai/blog?id=qwen3.5-max-preview"
+      },
+      {
+        "model_id": "gemini-3-1-pro",
+        "name": "Gemini 3.1 Pro",
+        "organization": "Google",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1494.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Флагманский анализ видео, PDF-документов и сложные агентные задачи",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview"
+      },
+      {
+        "model_id": "gpt-5-4-pro",
+        "name": "GPT-5.4 Pro",
+        "organization": "OpenAI",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1491.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Максимальная производительность, управление ПК и сложная математика",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/openai/gpt-5.4-pro"
+      },
+      {
+        "model_id": "gpt-5-4",
+        "name": "GPT-5.4",
+        "organization": "OpenAI",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1484.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Универсальная флагманская модель для сложного кодинга и логики",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/openai/gpt-5.4"
+      },
+      {
+        "model_id": "gpt-5-2-pro",
+        "name": "GPT-5.2 Pro",
+        "organization": "OpenAI",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 524288,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1481.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Сложные научные исследования и программирование высокого уровня",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/openai/gpt-5.2-pro"
+      },
+      {
+        "model_id": "gpt-o3-pro",
+        "name": "GPT o3 Pro",
+        "organization": "OpenAI",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1479.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Сложная математика, наука и задачи с требованием высокой надежности",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/openai/o3-pro"
+      },
+      {
+        "model_id": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "organization": "Anthropic",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1474.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Оптимальный баланс скорости, работа с фронтендом и управление ПК",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4.6"
+      },
+      {
+        "model_id": "gemini-3-1-flash-lite",
+        "name": "Gemini 3.1 Flash-Lite",
+        "organization": "Google",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1474.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Высокоскоростной инференс, потоковая классификация и перевод",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-preview"
+      },
+      {
+        "model_id": "grok-4-20",
+        "name": "Grok 4.20",
+        "organization": "xAI",
+        "role": "llm",
+        "license": "Проприетарная",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 2097152,
+          "source": "catalog:llmCatalog:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:llmCatalog:size",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 1473.0,
+          "source": "catalog:llmCatalog:elo",
+          "status": "benchmark"
+        },
+        "specialization": "Максимальная скорость генерации и строгое следование сложным промптам",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны (закрытый облачный API)"
+        ],
+        "source_url": "https://openrouter.ai/x-ai/grok-4.20"
+      },
+      {
+        "model_id": "Qwen/Qwen3-Embedding-8B",
+        "name": "Qwen3-Embedding-8B",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 70.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B"
+      },
+      {
+        "model_id": "nvidia/NV-Embed-v2",
+        "name": "NV-Embed-v2",
+        "organization": "Nvidia",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 69.3,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/nvidia/NV-Embed-v2"
+      },
+      {
+        "model_id": "Voyage_AI/voyage-large-2",
+        "name": "voyage-large-2",
+        "organization": "Voyage AI",
+        "role": "embedding",
+        "license": "API",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 2048,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 69.1,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=2048)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: закрытый API без открытых весов"
+        ],
+        "source_url": "https://docs.voyageai.com/docs/embeddings"
+      },
+      {
+        "model_id": "BAAI/bge-m4-large",
+        "name": "bge-m4-large",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 16384,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.335,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 2048,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 68.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=2048)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://github.com/FlagOpen/FlagEmbedding"
+      },
+      {
+        "model_id": "Google/text-embedding-005",
+        "name": "text-embedding-005",
+        "organization": "Google",
+        "role": "embedding",
+        "license": "API (Vertex)",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 768,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 68.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=768)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: закрытый API без открытых весов"
+        ],
+        "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "name": "gte-Qwen2-7B-instruct",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 68.4,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct"
+      },
+      {
+        "model_id": "Google/gemini-embedding-001",
+        "name": "gemini-embedding-001",
+        "organization": "Google",
+        "role": "embedding",
+        "license": "API (Vertex)",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3072,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 68.3,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3072)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: закрытый API без открытых весов"
+        ],
+        "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings"
+      },
+      {
+        "model_id": "Voyage_AI/voyage-3-large",
+        "name": "voyage-3-large",
+        "organization": "Voyage AI",
+        "role": "embedding",
+        "license": "API",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 68.2,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: закрытый API без открытых весов"
+        ],
+        "source_url": "https://docs.voyageai.com/docs/embeddings"
+      },
+      {
+        "model_id": "OpenAI/text-embedding-4-large",
+        "name": "text-embedding-4-large",
+        "organization": "OpenAI",
+        "role": "embedding",
+        "license": "API",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 16384,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": false,
+        "is_context_sufficient": true,
+        "supported_formats": [],
+        "supported_quantizations": [],
+        "compatible_engines": [],
+        "quality_score": {
+          "value": 67.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: закрытый API без открытых весов"
+        ],
+        "source_url": "https://platform.openai.com/docs/guides/embeddings"
+      },
+      {
+        "model_id": "BAAI/bge-multilingual-gemma2",
+        "name": "bge-multilingual-gemma2",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 9.24,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 67.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-multilingual-gemma2"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-gemma",
+        "name": "bge-reranker-v2-gemma",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 2.51,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 71.5,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Тяжелый LLM-based реранкер максимальной точности",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-gemma"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.568,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 69.2,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Мультиязычный cross-encoder реранкер для гибридного RAG",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+        "name": "gte-multilingual-reranker-base",
+        "organization": "Alibaba",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.306,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.4,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Легковесный мультиязычный реранкер с поддержкой длинного контекста",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-reranker-base"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-large",
+        "name": "bge-reranker-large",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 512,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.56,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.1,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Классический надежный cross-encoder для стандартных чанков 512 токенов",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-large"
+      },
+      {
+        "model_id": "jinaai/jina-reranker-v2-base-multilingual",
+        "name": "jina-reranker-v2-base-multilingual",
+        "organization": "Jina AI",
+        "role": "reranker",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1024,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Высокоскоростной реранкер с поддержкой русского и английского языков",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual"
+      },
+      {
+        "model_id": "nokkela-ai/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "nokkela-ai",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8194,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+        "name": "bge-reranker-v2.5-gemma2-lightweight",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "gemma",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-minicpm-layerwise",
+        "name": "bge-reranker-v2-minicpm-layerwise",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2048,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise"
+      }
+    ]
+  },
+  "4. Редкий язык через тег multilingual (DE, 8K, локальные)": {
+    "is_pipeline_viable": true,
+    "elapsed_ms": 8.35,
+    "counts": {
+      "llm": 10,
+      "embedding": 2,
+      "reranker": 3
+    },
+    "trace": [
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_status_check",
+        "details": "Единая локальная БЗ активна (всего моделей: 209; обновление HF Hub: 2026-11-22T12:12:19.323668+00:00)",
+        "candidates_count": 209
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:llm",
+        "details": "БЗ: для роли 'llm' отобрано 10 кандидатов (lang=de, min_ctx=8192)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:embedding",
+        "details": "БЗ: для роли 'embedding' отобрано 2 кандидатов (lang=de, min_ctx=8192)",
+        "candidates_count": 2
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:reranker",
+        "details": "БЗ: для роли 'reranker' отобрано 3 кандидатов (lang=de, min_ctx=512)",
+        "candidates_count": 3
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "pipeline_integrity_check",
+        "details": "Контур RAG жизнеспособен! Отобрано из актуальной БЗ: LLM=10, Emb=2, Rerank=3.",
+        "candidates_count": 15
+      }
+    ],
+    "top_candidates": [
+      {
+        "model_id": "DeepNarra/Paham-Experimental",
+        "name": "Paham-Experimental",
+        "organization": "DeepNarra",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2097152,
+          "source": "https://huggingface.co/DeepNarra/Paham-Experimental/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/DeepNarra/Paham-Experimental",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "llama.cpp",
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/DeepNarra/Paham-Experimental"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-12.8GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-12.8GB"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-8.9GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-8.9GB"
+      },
+      {
+        "model_id": "shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB",
+        "name": "Inkling-2-Mini-LookAtMyQuant-11.2GB",
+        "organization": "shinmegamiboson",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 1048576,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-11.2GB"
+      },
+      {
+        "model_id": "masahiroid/Qwen3.8-27B-Pyrite-2bit-MLX",
+        "name": "Qwen3.8-27B-Pyrite-2bit-MLX",
+        "organization": "masahiroid",
+        "role": "llm",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 262144,
+          "source": "https://huggingface.co/masahiroid/Qwen3.8-27B-Pyrite-2bit-MLX/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 27.0,
+          "source": "https://huggingface.co/masahiroid/Qwen3.8-27B-Pyrite-2bit-MLX",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/masahiroid/Qwen3.8-27B-Pyrite-2bit-MLX"
+      },
+      {
+        "model_id": "microsoft/Phi-3.5-mini-instruct",
+        "name": "Phi-3.5-mini-instruct",
+        "organization": "microsoft",
+        "role": "llm",
+        "license": "mit",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct"
+      },
+      {
+        "model_id": "unsloth/Phi-4-mini-instruct-GGUF",
+        "name": "Phi-4-mini-instruct-GGUF",
+        "organization": "unsloth",
+        "role": "llm",
+        "license": "mit",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "https://huggingface.co/unsloth/Phi-4-mini-instruct-GGUF/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/unsloth/Phi-4-mini-instruct-GGUF",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "gguf"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "llama.cpp",
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/unsloth/Phi-4-mini-instruct-GGUF"
+      },
+      {
+        "model_id": "sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Urdu",
+        "name": "FrameLlama-3.1-8B-Instruct-FN17-Urdu",
+        "organization": "sag-uniroma2",
+        "role": "llm",
+        "license": "llama3.1",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Urdu/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Urdu",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Urdu"
+      },
+      {
+        "model_id": "sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Italian",
+        "name": "FrameLlama-3.1-8B-Instruct-FN17-Italian",
+        "organization": "sag-uniroma2",
+        "role": "llm",
+        "license": "llama3.1",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Italian/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Italian",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/sag-uniroma2/FrameLlama-3.1-8B-Instruct-FN17-Italian"
+      },
+      {
+        "model_id": "sag-uniroma2/FrameLLaMA-3.1-8B-Instruct-FN17-Multilingual-Matched",
+        "name": "FrameLLaMA-3.1-8B-Instruct-FN17-Multilingual-Matched",
+        "organization": "sag-uniroma2",
+        "role": "llm",
+        "license": "llama3.1",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 131072,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLLaMA-3.1-8B-Instruct-FN17-Multilingual-Matched/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "https://huggingface.co/sag-uniroma2/FrameLLaMA-3.1-8B-Instruct-FN17-Multilingual-Matched",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "sglang",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-generation)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/sag-uniroma2/FrameLLaMA-3.1-8B-Instruct-FN17-Multilingual-Matched"
+      },
+      {
+        "model_id": "jinaai/jina-embeddings-v5-omni-small",
+        "name": "jina-embeddings-v5-omni-small",
+        "organization": "jinaai",
+        "role": "embedding",
+        "license": "cc-by-nc-4.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "https://huggingface.co/jinaai/jina-embeddings-v5-omni-small/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/jinaai/jina-embeddings-v5-omni-small",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (feature-extraction)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/jinaai/jina-embeddings-v5-omni-small"
+      },
+      {
+        "model_id": "coreai-community/Granite-Embedding-97M-Multilingual-R2-CoreAI",
+        "name": "Granite-Embedding-97M-Multilingual-R2-CoreAI",
+        "organization": "coreai-community",
+        "role": "embedding",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "https://huggingface.co/coreai-community/Granite-Embedding-97M-Multilingual-R2-CoreAI/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": 0.097,
+          "source": "https://huggingface.co/coreai-community/Granite-Embedding-97M-Multilingual-R2-CoreAI",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (feature-extraction)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/coreai-community/Granite-Embedding-97M-Multilingual-R2-CoreAI"
+      },
+      {
+        "model_id": "nokkela-ai/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "nokkela-ai",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8194,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+        "name": "bge-reranker-v2.5-gemma2-lightweight",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "gemma",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-minicpm-layerwise",
+        "name": "bge-reranker-v2-minicpm-layerwise",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2048,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise"
+      }
+    ]
+  },
+  "5. Невыполнимый контекст 10^12 (проверка разрыва триплета)": {
+    "is_pipeline_viable": false,
+    "elapsed_ms": 6.46,
+    "counts": {
+      "llm": 0,
+      "embedding": 10,
+      "reranker": 8
+    },
+    "trace": [
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_status_check",
+        "details": "Единая локальная БЗ активна (всего моделей: 209; обновление HF Hub: 2026-11-22T12:12:19.323668+00:00)",
+        "candidates_count": 209
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:llm",
+        "details": "БЗ: для роли 'llm' отобрано 0 кандидатов (lang=ru, min_ctx=1000000000000)",
+        "candidates_count": 0
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:embedding",
+        "details": "БЗ: для роли 'embedding' отобрано 10 кандидатов (lang=ru, min_ctx=8192)",
+        "candidates_count": 10
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "kb_search:reranker",
+        "details": "БЗ: для роли 'reranker' отобрано 8 кандидатов (lang=ru, min_ctx=512)",
+        "candidates_count": 8
+      },
+      {
+        "agent": "ModelResearcher",
+        "step": "pipeline_integrity_check",
+        "details": "[ОШИБКА КОНТУРА] Тройка RAG не может быть собрана. Отсутствуют роли: ['llm']. Причины: нет LLM с контекстом >= 1000000000000 токенов под язык 'ru'.",
+        "candidates_count": 0
+      }
+    ],
+    "top_candidates": [
+      {
+        "model_id": "Qwen/Qwen3-Embedding-8B",
+        "name": "Qwen3-Embedding-8B",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 8.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 70.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B"
+      },
+      {
+        "model_id": "nvidia/NV-Embed-v2",
+        "name": "NV-Embed-v2",
+        "organization": "Nvidia",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.12,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 69.3,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/nvidia/NV-Embed-v2"
+      },
+      {
+        "model_id": "BAAI/bge-m4-large",
+        "name": "bge-m4-large",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 16384,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.335,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 2048,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 68.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=2048)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://github.com/FlagOpen/FlagEmbedding"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "name": "gte-Qwen2-7B-instruct",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32000,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 68.4,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct"
+      },
+      {
+        "model_id": "BAAI/bge-multilingual-gemma2",
+        "name": "bge-multilingual-gemma2",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 9.24,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 3584,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 67.5,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=3584)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-multilingual-gemma2"
+      },
+      {
+        "model_id": "GritLM/GritLM-7B",
+        "name": "GritLM-7B",
+        "organization": "GritLM",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/GritLM/GritLM-7B"
+      },
+      {
+        "model_id": "intfloat/e5-mistral-7b-instruct",
+        "name": "intfloat/e5-mistral-7b-instruct",
+        "organization": "Microsoft",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 32768,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 7.0,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "declared"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 4096,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 66.6,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=4096)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/intfloat/e5-mistral-7b-instruct"
+      },
+      {
+        "model_id": "jinaai/jina-embeddings-v3",
+        "name": "jina-embeddings-v3",
+        "organization": "Jina AI",
+        "role": "embedding",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.565,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 65.0,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-embeddings-v3"
+      },
+      {
+        "model_id": "BAAI/bge-m3",
+        "name": "bge-m3",
+        "organization": "BAAI",
+        "role": "embedding",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.565,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 1024,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 64.1,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=1024)",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-m3"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-base",
+        "name": "gte-multilingual-base",
+        "organization": "Alibaba",
+        "role": "embedding",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:embeddingCatalog:contextWindow",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:embeddingCatalog:params",
+          "status": "estimated"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": {
+          "value": 768,
+          "source": "catalog:embeddingCatalog:dimension",
+          "status": "catalog"
+        },
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "ollama"
+        ],
+        "quality_score": {
+          "value": 63.2,
+          "source": "catalog:embeddingCatalog:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Эмбеддинг (dim=768)",
+        "domain_match": true,
+        "warnings": [
+          "requires_verification: количество параметров оценено по архитектуре энкодера"
+        ],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-gemma",
+        "name": "bge-reranker-v2-gemma",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Gemma License",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 2.51,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei",
+          "vllm"
+        ],
+        "quality_score": {
+          "value": 71.5,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Тяжелый LLM-based реранкер максимальной точности",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-gemma"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.568,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 69.2,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Мультиязычный cross-encoder реранкер для гибридного RAG",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "Alibaba-NLP/gte-multilingual-reranker-base",
+        "name": "gte-multilingual-reranker-base",
+        "organization": "Alibaba",
+        "role": "reranker",
+        "license": "Apache 2.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.306,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.4,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Легковесный мультиязычный реранкер с поддержкой длинного контекста",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/Alibaba-NLP/gte-multilingual-reranker-base"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-large",
+        "name": "bge-reranker-large",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "MIT",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 512,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.56,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 67.1,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Классический надежный cross-encoder для стандартных чанков 512 токенов",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-large"
+      },
+      {
+        "model_id": "jinaai/jina-reranker-v2-base-multilingual",
+        "name": "jina-reranker-v2-base-multilingual",
+        "organization": "Jina AI",
+        "role": "reranker",
+        "license": "CC BY-NC 4.0",
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "context_length": {
+          "value": 1024,
+          "source": "catalog:rerankers:context",
+          "status": "catalog"
+        },
+        "parameters_count_b": {
+          "value": 0.278,
+          "source": "catalog:rerankers:params",
+          "status": "catalog"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors",
+          "onnx"
+        ],
+        "supported_quantizations": [
+          "FP16",
+          "INT8"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": {
+          "value": 66.8,
+          "source": "catalog:rerankers:mteb",
+          "status": "benchmark"
+        },
+        "specialization": "Высокоскоростной реранкер с поддержкой русского и английского языков",
+        "domain_match": true,
+        "warnings": [],
+        "source_url": "https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual"
+      },
+      {
+        "model_id": "nokkela-ai/bge-reranker-v2-m3",
+        "name": "bge-reranker-v2-m3",
+        "organization": "nokkela-ai",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8194,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/nokkela-ai/bge-reranker-v2-m3"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+        "name": "bge-reranker-v2.5-gemma2-lightweight",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "gemma",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 8192,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight"
+      },
+      {
+        "model_id": "BAAI/bge-reranker-v2-minicpm-layerwise",
+        "name": "bge-reranker-v2-minicpm-layerwise",
+        "organization": "BAAI",
+        "role": "reranker",
+        "license": "apache-2.0",
+        "languages": [
+          "multilingual"
+        ],
+        "context_length": {
+          "value": 2048,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise/blob/main/config.json",
+          "status": "declared"
+        },
+        "parameters_count_b": {
+          "value": null,
+          "source": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise",
+          "status": "unknown"
+        },
+        "active_parameters_count_b": null,
+        "embedding_dimension": null,
+        "is_local_compatible": true,
+        "is_context_sufficient": true,
+        "supported_formats": [
+          "safetensors"
+        ],
+        "supported_quantizations": [
+          "FP16"
+        ],
+        "compatible_engines": [
+          "tei"
+        ],
+        "quality_score": null,
+        "specialization": "Hugging Face (text-classification)",
+        "domain_match": true,
+        "warnings": [
+          "данные о количестве параметров не указаны в карточке модели"
+        ],
+        "source_url": "https://huggingface.co/BAAI/bge-reranker-v2-minicpm-layerwise"
+      }
+    ]
+  }
+}

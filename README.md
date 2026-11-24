@@ -75,13 +75,31 @@ pip install -r requirements.txt
 
 ### 1. Сквозной CLI-прогон (сценарии RTX 5090 и перенос на RTX 4090)
 
+**Что проверить до запуска:**
+- **Для режима `openrouter`:** в корне проекта должен быть создан файл `api_key.txt` с вашим API-ключом (либо задана переменная окружения `OPENROUTER_API_KEY` / `OPENAI_API_KEY`). Сам `api_key.txt` исключён через `.gitignore` и не должен попадать в Git.
+- **Для режима `ollama`:** должен быть запущен локальный сервис Ollama и локально скачаны нужные модели (по умолчанию в `run_demo.py` для Агента 3 используется `qwen2.5:3b` — проверьте наличие через `ollama list` и при необходимости скачайте через `ollama pull qwen2.5:3b`).
+- **Для режима `none`:** внешние API и локальная LLM для Агента 3 не требуются — используется детерминированный отбор.
+
+**Аргументы запуска (`run_demo.py`):**
+- `--agent3-llm {openrouter,ollama,none}` — выбор режима LLM для Агента 3 (по умолчанию берётся из переменной окружения `AGENT3_LLM_MODE`, а если она не задана — используется `openrouter`).
+
 ```bash
+# Запуск по умолчанию (openrouter, либо значение AGENT3_LLM_MODE)
 python run_demo.py
+
+# Явный запуск через OpenRouter
+python run_demo.py --agent3-llm openrouter
+
+# Явный запуск через локальную Ollama
+python run_demo.py --agent3-llm ollama
+
+# Запуск без LLM (детерминированный отбор в Агенте 3)
+python run_demo.py --agent3-llm none
 ```
 
 Скрипт последовательно прогоняет оба сценария через всех 5 агентов, выводит в консоль выбранные планы развёртывания, команды запуска, сквозную трассу и сохраняет:
-* полные состояния проектов в `data/projects/`;
-* сгенерированные SCs-файлы онтологии в `isolated_ostis_kb/`.
+- полные состояния проектов в `data/projects/`;
+- сгенерированные SCs-файлы онтологии в `isolated_ostis_kb/`.
 
 ### 2. Единый веб-сервер и дашборд OSTIS (FastAPI)
 
@@ -90,18 +108,18 @@ python api.py
 ```
 
 После запуска доступны:
-* **HTML-дашборд OSTIS и трассы:** `http://127.0.0.1:8000/`
-* **Swagger UI (интерактивное тестирование API):** `http://127.0.0.1:8000/docs`
+- **HTML-дашборд OSTIS и трассы:** `http://127.0.0.1:8000/`
+- **Swagger UI (интерактивное тестирование API):** `http://127.0.0.1:8000/docs`
 
 **Основные REST-эндпоинты:**
-* `GET /health` — проверка состояния сервиса;
-* `POST /api/v1/projects/analyze` — запуск полного 5-агентного конвейера;
-* `POST /api/v1/projects/{project_id}/clarify` — доотправка ответов на критичные вопросы Агента 1;
-* `PATCH /api/v1/projects/{project_id}/hardware` — пересчёт существующего проекта под новое оборудование (например, перенос с RTX 5090 на RTX 4090);
-* `GET /api/v1/projects/{project_id}` — чтение сохранённого проекта;
-* `GET /api/v1/projects/{project_id}/export?format=json|yaml` — экспорт результата в JSON или YAML;
-* `GET /api/ostis/cases` — список накопленных в БЗ OSTIS кейсов с SCs-кодом;
-* `GET /api/trace` — сквозная трасса выполнения агентов по проектам.
+- `GET /health` — проверка состояния сервиса;
+- `POST /api/v1/projects/analyze` — запуск полного 5-агентного конвейера;
+- `POST /api/v1/projects/{project_id}/clarify` — доотправка ответов на критичные вопросы Агента 1;
+- `PATCH /api/v1/projects/{project_id}/hardware` — пересчёт существующего проекта под новое оборудование (например, перенос с RTX 5090 на RTX 4090);
+- `GET /api/v1/projects/{project_id}` — чтение сохранённого проекта;
+- `GET /api/v1/projects/{project_id}/export?format=json|yaml` — экспорт результата в JSON или YAML;
+- `GET /api/ostis/cases` — список накопленных в БЗ OSTIS кейсов с SCs-кодом;
+- `GET /api/trace` — сквозная трасса выполнения агентов по проектам.
 
 ---
 
@@ -124,6 +142,6 @@ cd agent4 && python -m pytest -v && cd ..
 ```
 
 Дополнительные скрипты автономной проверки:
-* `cd agent2 && python scripts/verify_scenarios.py` — проверка 5 сценариев поиска по SQLite-БЗ;
-* `cd agent2 && python scripts/sync_catalog.py` — пересборка локальной БЗ и принудительная синхронизация с Hugging Face Hub;
-* `cd agent4 && python -m inference_agent examples/rtx5090_input.json --out plan` — автономный CLI-расчёт плана инференса.
+- `cd agent2 && python scripts/verify_scenarios.py` — проверка 5 сценариев поиска по SQLite-БЗ;
+- `cd agent2 && python scripts/sync_catalog.py` — пересборка локальной БЗ и принудительная синхронизация с Hugging Face Hub;
+- `cd agent4 && python -m inference_agent examples/rtx5090_input.json --out plan` — автономный CLI-расчёт плана инференса.
